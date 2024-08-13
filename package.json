@@ -1,0 +1,41 @@
+{
+  "name": "ldla-react-uploader-cloudinary",
+  "version": "0.1.1",
+  "description": "Composant react d'upload multiples d'image vers Cloudinary, Affichage résultat d'upload et liste complete des images sur le cloud. Toutes les images sont supprimables individuellemnt. ",
+  "author": "Ldla Mti",
+  "license": "MIT",
+  "keywords": [
+    "react",
+    "components",
+    "upload",
+    "cloudinary"
+  ],
+  "main": "dist/index.js",
+  "module": "dist/index.js",
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-scripts": "1.1.4",
+    "react-test-renderer": "^18.3.1"
+  },
+  "peerDependencies": {
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build-examples": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject",
+    "build": "rm -rf dist && NODE_ENV=production babel src/lib --out-dir dist --copy-files --ignore __tests__,spec.js,test.js,__snapshots__"
+  },
+  "dependencies": {
+    "axios": "^1.7.3",
+    "cloudinary": "^2.4.0"
+  }
+}
