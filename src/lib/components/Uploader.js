@@ -122,7 +122,7 @@ function Upload() {
                     </button>
                     <button 
                         className={`navbar-btn ${activeTab === "result" ? "active" : ""}`} 
-                        onClick={() => handleNavigation("result-section", "delete")}
+                        onClick={() => handleNavigation("result-section", "result")}
                     >
                         Result
                     </button>

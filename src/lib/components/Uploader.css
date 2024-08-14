@@ -344,11 +344,15 @@ pre {
 }
 
 .modal-content {
+  width: 30%;
+  height:100px;
   background-color: #1e1e1e;
   padding: 20px;
+  padding-top: 70px;
   border-radius: 10px;
   text-align: center;
   color: aqua;
+  font-size:21px;
   border:1px solid aqua;
 }
 
@@ -363,4 +367,12 @@ pre {
 .close-button:hover,
 .close-button:focus {
   color: white;
+}
+
+@media (max-width: 768px) {
+  .modal-content{
+    width: 60%;
+    height:100px;
+    padding-top: 70px;
+  }
 }
