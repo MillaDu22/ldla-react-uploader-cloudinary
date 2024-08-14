@@ -1,6 +1,6 @@
 {
   "name": "ldla-react-uploader-cloudinary",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "description": "Composant react d'upload multiples d'image vers Cloudinary, Affichage résultat d'upload et liste complete des images sur le cloud. Toutes les images sont supprimables individuellemnt. ",
   "author": "Ldla Mti",
   "license": "MIT",
