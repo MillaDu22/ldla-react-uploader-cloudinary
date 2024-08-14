@@ -3,7 +3,7 @@ import axios from 'axios';
 import { Uploader } from '../lib';
 import './App.css';
 
-function App() {
+const App = () => {
     return (
       <div className ="App">
         <Uploader />

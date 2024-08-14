@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import './Uploader.css';
 
-function Upload() {
+const Upload = () => {
 
     const [isOpen, setIsOpen] = useState(false);
     const [activeTab, setActiveTab] = useState("upload");
