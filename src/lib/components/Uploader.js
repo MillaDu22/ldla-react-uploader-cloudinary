@@ -4,10 +4,18 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars } from '@fortawesome/free-solid-svg-icons';
 import './Uploader.css';
 
+const API_URL = 'https://backend-uploader-cloudinary-ldla-photographer-ddo3a4r6n.vercel.app';
+
 const Upload = () => {
 
     const [isOpen, setIsOpen] = useState(false);
     const [activeTab, setActiveTab] = useState("upload");
+    const [selectedFiles, setSelectedFiles] = useState([]);
+    const [uploadResult, setUploadResult] = useState(null);
+    const [images, setImages] = useState([]);
+    const [isModalVisible, setIsModalVisible] = useState(false);
+    const [modalMessage, setModalMessage] = useState('');
+    const fileInputRef = React.createRef();
 
     const handleMouseEnter = () => {
         setIsOpen(true);
@@ -25,18 +33,10 @@ const Upload = () => {
         }
     };
 
-
-    const [selectedFiles, setSelectedFiles] = useState([]);
-    const [uploadResult, setUploadResult] = useState(null);
-    const [images, setImages] = useState([]);
-    const [isModalVisible, setIsModalVisible] = useState(false);
-    const [modalMessage, setModalMessage] = useState('');
-    const fileInputRef = React.createRef();
-
     // Fonction pour récupérer les images depuis Cloudinary //
     const fetchImages = async () => {
         try {
-            const response = await axios.get('http://localhost:3001/images');
+            const response = await axios.get(`${API_URL}/images`);
             setImages(response.data);
         } catch (error) {
             console.error('Error fetching images:', error);
@@ -61,7 +61,7 @@ const Upload = () => {
         }
 
         try {
-            const response = await axios.post('http://localhost:3001/upload', formData, {
+            const response = await axios.post(`${API_URL}/upload`, formData, {
                 headers: {
                     'Content-Type': 'multipart/form-data',
                 },
@@ -94,7 +94,7 @@ const Upload = () => {
     const handleDelete = async (publicId) => {
         try {
             // Envoi une requête DELETE au serveur local qui gère la suppression de l'image sur Cloudinary //
-            const response = await axios.delete(`http://localhost:3001/images/${publicId}`);
+            const response = await axios.delete(`${API_URL}/images/${publicId}`);
             // Vérifie si la suppression a réussi //
             if (response.status === 200) {
                 fetchImages(); // Réactualise la liste des images après la suppression //
