@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faBars } from '@fortawesome/free-solid-svg-icons';
 import './Uploader.css';
 
 const Upload = () => {
@@ -189,7 +191,6 @@ const Upload = () => {
                         ))}
                     </ul>
                 </div>
-                <Navbar />
                 {/* Modale pour afficher le message de succès */}
                 {isModalVisible && (
                     <div className="modal">
