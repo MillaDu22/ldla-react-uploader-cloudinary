@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars } from '@fortawesome/free-solid-svg-icons';
 import './Uploader.css';
 
-const API_URL = 'https://backend-uploader-cloudinary-ldla-photographer-ddo3a4r6n.vercel.app';
+//const API_URL = 'https://backend-uploader-cloudinary-ldla-photographer.vercel.app';
 
 const Upload = () => {
 
@@ -36,7 +36,8 @@ const Upload = () => {
     // Fonction pour récupérer les images depuis Cloudinary //
     const fetchImages = async () => {
         try {
-            const response = await axios.get(`${API_URL}/images`);
+            //const response = await axios.get('http://localhost:3001/images');
+            const response = await axios.get('https://backend-uploader-cloudinary-ldla-photographer.vercel.app/images');
             setImages(response.data);
         } catch (error) {
             console.error('Error fetching images:', error);
@@ -61,7 +62,8 @@ const Upload = () => {
         }
 
         try {
-            const response = await axios.post(`${API_URL}/upload`, formData, {
+            //const response = await axios.post('http://localhost:3001/upload', formData, {
+            const response = await axios.post('https://backend-uploader-cloudinary-ldla-photographer.vercel.app/upload', formData, {
                 headers: {
                     'Content-Type': 'multipart/form-data',
                 },
@@ -94,7 +96,8 @@ const Upload = () => {
     const handleDelete = async (publicId) => {
         try {
             // Envoi une requête DELETE au serveur local qui gère la suppression de l'image sur Cloudinary //
-            const response = await axios.delete(`${API_URL}/images/${publicId}`);
+            //const response = await axios.delete(`http://localhost:3001/images/${publicId}`);
+            const response = await axios.delete(`https://backend-uploader-cloudinary-ldla-photographer.vercel.app/images/${publicId}`);
             // Vérifie si la suppression a réussi //
             if (response.status === 200) {
                 fetchImages(); // Réactualise la liste des images après la suppression //
